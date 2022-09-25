@@ -26,7 +26,6 @@ const ConsentForm = (props) => {
     Object.keys(check).forEach((key) => {
       if (!check[key]) flag = false;
     });
-    console.log(flag);
     setSubmitFlag(!flag);
   }, [check, setSubmitFlag]);
 

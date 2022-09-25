@@ -1,6 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 const AddressForm = () => {
+  const [formValue, setFormValue] = useState({
+    zip: "",
+    pref: "",
+    add1: "",
+    add1Kana: "",
+    add2: "",
+    add2Kana: "",
+    buildingName: "",
+    buildingNameKana: "",
+    mail: "",
+    tel1: "",
+    tel2: "",
+    tel3: "",
+    fax1: "",
+    fax2: "",
+    fax3: "",
+    url: "",
+    shopUrl: "",
+  });
+
+  const [disableFlag, setDisableFlag] = useState(true);
+
+  const setAddressFromZipCode = (zipCode) => {
+    axios
+      .get("https://zipcloud.ibsnet.co.jp/api/search?zipcode=" + zipCode)
+      .then((res) => {
+        if (res.data.results === null) {
+          alert("該当する住所がありませんでした。");
+        } else {
+          setFormValue({
+            ...formValue,
+            pref: res.data.results[0].address1,
+            add1: res.data.results[0].address2 + res.data.results[0].address3,
+            add1Kana: res.data.results[0].kana2 + res.data.results[0].kana3,
+          });
+        }
+      })
+      .catch((err) => {
+        alert(err.message);
+      })
+      .finally(() => {
+        setDisableFlag(false);
+      });
+  };
+
   return (
     <>
       <h2 className="shop-title">法人住所</h2>
@@ -15,13 +61,13 @@ const AddressForm = () => {
                 <div className="form-input form-input--large">
                   <input
                     type="text"
-                    name="事業者_郵便番号"
-                    id="事業者_郵便番号"
-                    className="js-事業者-郵便番号"
                     placeholder="例：0000000"
                     MAXLENGTH="7"
-                    value=""
                     required
+                    value={formValue.zip}
+                    onChange={(e) => {
+                      setFormValue({ ...formValue, zip: e.target.value });
+                    }}
                   />
                 </div>
               </div>
@@ -29,7 +75,9 @@ const AddressForm = () => {
                 <button
                   type="button"
                   className="button_blue"
-                  onclick="sub郵便番号入力('事業者_郵便番号','事業者');return false;"
+                  onClick={() => {
+                    setAddressFromZipCode(formValue.zip);
+                  }}
                 >
                   住所検索
                 </button>
@@ -58,7 +106,11 @@ const AddressForm = () => {
                     name="事業者_都道府県"
                     id="事業者_都道府県"
                     className="js-事業者-都道府県"
-                    disabled
+                    value={formValue.pref}
+                    onChange={(e) => {
+                      setFormValue({ ...formValue, pref: e.target.value });
+                    }}
+                    disabled={disableFlag}
                     required
                   >
                     <option value="" selected>
@@ -111,7 +163,7 @@ const AddressForm = () => {
                     <option value="宮崎県">宮崎県</option>
                     <option value="鹿児島県">鹿児島県</option>
                     <option value="沖縄県">沖縄県</option>
-                  </select>{" "}
+                  </select>
                 </div>
               </div>
             </div>
@@ -132,8 +184,11 @@ const AddressForm = () => {
                     id="事業者_市区町村"
                     className="js-事業者-市区町村"
                     placeholder=""
-                    value=""
-                    disabled
+                    value={formValue.add1}
+                    onChange={(e) => {
+                      setFormValue({ ...formValue, add1: e.target.value });
+                    }}
+                    disabled={disableFlag}
                     required
                   />
                 </div>
@@ -150,12 +205,12 @@ const AddressForm = () => {
                 <div className="form-input form-input--xlarge">
                   <input
                     type="text"
-                    name="事業者_市区町村ふりがな"
-                    id="事業者_市区町村ふりがな"
-                    className="js-事業者-市区町村ふりがな"
                     placeholder=""
-                    value=""
-                    disabled
+                    value={formValue.add1Kana}
+                    onChange={(e) => {
+                      setFormValue({ ...formValue, add1Kana: e.target.value });
+                    }}
+                    disabled={disableFlag}
                   />
                 </div>
               </div>
@@ -176,12 +231,13 @@ const AddressForm = () => {
                 <div className="form-input form-input--xlarge">
                   <input
                     type="text"
-                    name="事業者_町名番地"
-                    id="事業者_町名番地"
                     placeholder=""
-                    className="is-empty js-事業者-町名番地"
-                    value=""
-                    disabled
+                    className="is-empty"
+                    value={formValue.add2}
+                    onChange={(e) => {
+                      setFormValue({ ...formValue, add2: e.target.value });
+                    }}
+                    disabled={disableFlag}
                     required
                   />
                 </div>
@@ -198,12 +254,12 @@ const AddressForm = () => {
                 <div className="form-input form-input--xlarge">
                   <input
                     type="text"
-                    name="事業者_町名番地ふりがな"
-                    id="事業者_町名番地ふりがな"
                     placeholder=""
-                    className="is-empty js-事業者-町名番地ふりがな"
-                    value=""
-                    disabled
+                    value={formValue.add2Kana}
+                    onChange={(e) => {
+                      setFormValue({ ...formValue, add2Kana: e.target.value });
+                    }}
+                    disabled={disableFlag}
                   />
                 </div>
               </div>
@@ -222,12 +278,15 @@ const AddressForm = () => {
                 <div className="form-input form-input--xlarge">
                   <input
                     type="text"
-                    name="事業者_建物等"
-                    id="事業者_建物等"
-                    className="js-事業者-建物等"
                     placeholder=""
-                    value=""
-                    disabled
+                    value={formValue.buildingName}
+                    onChange={(e) => {
+                      setFormValue({
+                        ...formValue,
+                        buildingName: e.target.value,
+                      });
+                    }}
+                    disabled={disableFlag}
                   />
                 </div>
               </div>
@@ -243,12 +302,15 @@ const AddressForm = () => {
                 <div className="form-input form-input--xlarge">
                   <input
                     type="text"
-                    name="事業者_建物等ふりがな"
-                    id="事業者_建物等ふりがな"
-                    className="js-事業者-建物等ふりがな"
                     placeholder=""
-                    value=""
-                    disabled
+                    value={formValue.buildingNameKana}
+                    onChange={(e) => {
+                      setFormValue({
+                        ...formValue,
+                        buildingNameKana: e.target.value,
+                      });
+                    }}
+                    disabled={disableFlag}
                   />
                 </div>
               </div>
@@ -267,11 +329,14 @@ const AddressForm = () => {
                 <div className="form-input form-input--xlarge">
                   <input
                     type="text"
-                    name="事業者_法人mail"
-                    id="事業者_法人mail"
-                    className="js-事業者_法人mail"
                     placeholder=""
-                    value=""
+                    value={formValue.mail}
+                    onChange={(e) => {
+                      setFormValue({
+                        ...formValue,
+                        mail: e.target.value,
+                      });
+                    }}
                   />
                 </div>
               </div>
@@ -289,12 +354,16 @@ const AddressForm = () => {
                 <div className="form-input form-input--medium">
                   <input
                     type="text"
-                    name="事業者_TEL1"
                     maxlength="5"
                     placeholder="例：03"
-                    className="is-empty js-事業者-TEL1"
-                    id="事業者_TEL1"
-                    value=""
+                    className="is-empty"
+                    value={formValue.tel1}
+                    onChange={(e) => {
+                      setFormValue({
+                        ...formValue,
+                        tel1: e.target.value,
+                      });
+                    }}
                     required
                   />
                 </div>
@@ -307,12 +376,16 @@ const AddressForm = () => {
                 <div className="form-input form-input--medium">
                   <input
                     type="text"
-                    name="事業者_TEL2"
                     maxlength="4"
                     placeholder="例：0000"
-                    className="is-empty js-事業者-TEL2"
-                    id="事業者_TEL2"
-                    value=""
+                    className="is-empty"
+                    value={formValue.tel2}
+                    onChange={(e) => {
+                      setFormValue({
+                        ...formValue,
+                        tel2: e.target.value,
+                      });
+                    }}
                     required
                   />
                 </div>
@@ -325,12 +398,16 @@ const AddressForm = () => {
                 <div className="form-input form-input--medium">
                   <input
                     type="text"
-                    name="事業者_TEL3"
                     maxlength="4"
                     placeholder="例：0000"
-                    className="is-empty js-事業者-TEL3"
-                    id="事業者_TEL3"
-                    value=""
+                    className="is-empty"
+                    value={formValue.tel3}
+                    onChange={(e) => {
+                      setFormValue({
+                        ...formValue,
+                        tel3: e.target.value,
+                      });
+                    }}
                     required
                   />
                 </div>
@@ -350,12 +427,15 @@ const AddressForm = () => {
                 <div className="form-input form-input--medium">
                   <input
                     type="text"
-                    name="事業者_FAX1"
                     maxlength="5"
                     placeholder="例：03"
-                    id="事業者_FAX1"
-                    className="js-事業者-FAX1"
-                    value=""
+                    value={formValue.fax1}
+                    onChange={(e) => {
+                      setFormValue({
+                        ...formValue,
+                        fax1: e.target.value,
+                      });
+                    }}
                   />
                 </div>
               </div>
@@ -366,12 +446,15 @@ const AddressForm = () => {
                 <div className="form-input form-input--medium">
                   <input
                     type="text"
-                    name="事業者_FAX2"
                     maxlength="4"
                     placeholder="例：0000"
-                    id="事業者_FAX2"
-                    className="js-事業者-FAX2"
-                    value=""
+                    value={formValue.fax2}
+                    onChange={(e) => {
+                      setFormValue({
+                        ...formValue,
+                        fax2: e.target.value,
+                      });
+                    }}
                   />
                 </div>
               </div>
@@ -382,12 +465,15 @@ const AddressForm = () => {
                 <div className="form-input form-input--medium">
                   <input
                     type="text"
-                    name="事業者_FAX3"
                     maxlength="4"
                     placeholder="例：0000"
-                    id="事業者_FAX3"
-                    className="js-事業者-FAX3"
-                    value=""
+                    value={formValue.fax3}
+                    onChange={(e) => {
+                      setFormValue({
+                        ...formValue,
+                        fax3: e.target.value,
+                      });
+                    }}
                   />
                 </div>
               </div>
@@ -406,10 +492,14 @@ const AddressForm = () => {
                 <div className="form-input form-input--xlarge">
                   <input
                     type="text"
-                    name="事業者_URL"
                     placeholder="例:https://×××.co.jp"
-                    id="事業者_URL"
-                    value=""
+                    value={formValue.url}
+                    onChange={(e) => {
+                      setFormValue({
+                        ...formValue,
+                        url: e.target.value,
+                      });
+                    }}
                   />
                 </div>
               </div>
@@ -431,10 +521,14 @@ const AddressForm = () => {
                 <div className="form-input form-input--xlarge">
                   <input
                     type="text"
-                    name="店舗一覧URL"
                     placeholder="例:https://×××.co.jp"
-                    id="店舗一覧URL"
-                    value=""
+                    value={formValue.shopUrl}
+                    onChange={(e) => {
+                      setFormValue({
+                        ...formValue,
+                        shopUrl: e.target.value,
+                      });
+                    }}
                   />
                 </div>
               </div>

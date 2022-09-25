@@ -11,6 +11,7 @@ import styles from "./main.module.css";
 
 const MainForm = () => {
   const [submitFlag, setSubmitFlag] = useState(false);
+  const [Address, setAddress] = useState({});
   return (
     <>
       <Top />
@@ -18,7 +19,7 @@ const MainForm = () => {
         <form>
           <ConsentForm setSubmitFlag={setSubmitFlag} />
           <BusinessForm />
-          <AddressForm />
+          <AddressForm setAddress={setAddress} />
           <OrganizationForm />
           <InfectionMeasures />
           <PasswordForm />
