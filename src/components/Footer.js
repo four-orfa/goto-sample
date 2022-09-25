@@ -3,8 +3,8 @@ import React from "react";
 const Footer = () => {
   return (
     <footer id="footer">
-      <div class="wrapper">
-        <div class="footer_illust">
+      <div className="wrapper">
+        <div className="footer_illust">
           <img
             src="https://biz.goto.jata-net.or.jp/assets/images/illust_footer.jpg"
             alt="footer"
@@ -12,7 +12,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <ul class="footer_links">
+      <ul className="footer_links">
         <li>
           <a
             href="https://biz.goto.jata-net.or.jp/requirements.html"
@@ -33,8 +33,8 @@ const Footer = () => {
         </li>
       </ul>
 
-      <div class="footer_bottom">
-        <div class="wrapper">
+      <div className="footer_bottom">
+        <div className="wrapper">
           <small>&copy; 2020 Go To トラベル事務局. All Rights Reserved.</small>
         </div>
       </div>

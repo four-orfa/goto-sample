@@ -4,10 +4,10 @@ const Top = () => {
   return (
     <>
       <div id="page_title_wrap">
-        <div class="wrapper">
-          <h1 class="page_title with_small_title">
-            <span class="small_title">旅行会社・OTA等の旅行業者の方へ</span>
-            <span class="main_title">オンライン申請</span>
+        <div className="wrapper">
+          <h1 className="page_title with_small_title">
+            <span className="small_title">旅行会社・OTA等の旅行業者の方へ</span>
+            <span className="main_title">オンライン申請</span>
           </h1>
         </div>
       </div>

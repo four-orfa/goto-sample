@@ -3,46 +3,46 @@ import React from "react";
 const BusinessForm = () => {
   return (
     <>
-      <div id="事業者情報_タイトル" class="">
-        <h2 class="shop-title">１. 事業者情報の登録</h2>
+      <div id="事業者情報_タイトル" className="">
+        <h2 className="shop-title">１. 事業者情報の登録</h2>
       </div>
 
-      <h2 class="shop-title">法人情報</h2>
-      <table class="input-form">
+      <h2 className="shop-title">法人情報</h2>
+      <table className="input-form">
         <tbody>
           <tr>
-            <td class="row_header">
-              法人番号<span class="input-form__require">※</span>
+            <td className="row_header">
+              法人番号<span className="input-form__require">※</span>
             </td>
-            <td class="row_data">
-              <div class="form-inline">
-                <div class="form-inline__item">
-                  <div class="form-input form-input--xlarge">
+            <td className="row_data">
+              <div className="form-inline">
+                <div className="form-inline__item">
+                  <div className="form-input form-input--xlarge">
                     <input
                       type="text"
                       name="事業者_法人番号"
                       id="事業者_法人番号"
                       placeholder=""
-                      class="is-empty"
+                      className="is-empty"
                       MINLENGTH="13"
                       MAXLENGTH="13"
                       required
                     />
                   </div>
                 </div>
-                <div class="form-inline__item form-inline__item--text">
+                <div className="form-inline__item form-inline__item--text">
                   <span>(半角数字、13桁)</span>
                 </div>
               </div>
-              <div class="form-inline form-inline--check">
-                <div class="form-inline__item form-inline__item--check">
-                  <div class="form-check form-input--xlarge">
+              <div className="form-inline form-inline--check">
+                <div className="form-inline__item form-inline__item--check">
+                  <div className="form-check form-input--xlarge">
                     <input
                       type="checkbox"
                       name="事業者_法人番号_無しフラグ"
                       value="t"
                       id="事業者_法人番号_無しフラグ"
-                      class=""
+                      className=""
                     />
                     <label for="事業者_法人番号_無しフラグ">
                       法人番号をお持ちでない事業者様
@@ -51,7 +51,7 @@ const BusinessForm = () => {
                 </div>
               </div>
 
-              <p class="input-form__note">
+              <p className="input-form__note">
                 ※法人の方はもれなく法人番号（13桁）をご入力ください。
                 <br />
                 ※法人番号をお持ちでない事業者様（法人格の無い宿泊施設様や個人事業主様など）はチェックを入れてください。
@@ -60,50 +60,50 @@ const BusinessForm = () => {
           </tr>
 
           <tr>
-            <td class="row_header">
-              法人名称<span class="input-form__require">※</span>
+            <td className="row_header">
+              法人名称<span className="input-form__require">※</span>
             </td>
-            <td class="row_data">
-              <div class="form-inline">
-                <div class="form-inline__item">
-                  <div class="form-input form-input--xlarge">
+            <td className="row_data">
+              <div className="form-inline">
+                <div className="form-inline__item">
+                  <div className="form-input form-input--xlarge">
                     <input
                       type="text"
                       name="事業者_名称"
                       id="事業者_名称"
                       placeholder=""
-                      class="is-empty js-事業者-事業者名"
+                      className="is-empty js-事業者-事業者名"
                       value=""
                       required
                     />
                   </div>
                 </div>
-                <div class="form-inline__item form-inline__item--text">
+                <div className="form-inline__item form-inline__item--text">
                   法人格は除く
                 </div>
               </div>
             </td>
           </tr>
           <tr>
-            <td class="row_header">
-              法人名称（フリガナ）<span class="input-form__require">※</span>
+            <td className="row_header">
+              法人名称（フリガナ）<span className="input-form__require">※</span>
             </td>
-            <td class="row_data">
-              <div class="form-inline">
-                <div class="form-inline__item">
-                  <div class="form-input form-input--xlarge">
+            <td className="row_data">
+              <div className="form-inline">
+                <div className="form-inline__item">
+                  <div className="form-input form-input--xlarge">
                     <input
                       type="text"
                       name="事業者_名称ふりがな"
                       id="事業者_名称ふりがな"
                       placeholder=""
-                      class="is-empty js-事業者-事業者名称ふりがな"
+                      className="is-empty js-事業者-事業者名称ふりがな"
                       value=""
                       required
                     />
                   </div>
                 </div>
-                <div class="form-inline__item form-inline__item--text">
+                <div className="form-inline__item form-inline__item--text">
                   <span>
                     (全角カナ、全角スペース)
                     <br />
@@ -115,11 +115,11 @@ const BusinessForm = () => {
           </tr>
 
           <tr>
-            <td class="row_header">法人格名称</td>
-            <td class="row_data">
-              <div class="form-inline">
-                <div class="form-inline__item">
-                  <div class="form-input form-input--large form-select select select_require">
+            <td className="row_header">法人格名称</td>
+            <td className="row_data">
+              <div className="form-inline">
+                <div className="form-inline__item">
+                  <div className="form-input form-input--large form-select select select_require">
                     <select name="事業者_法人格名称" id="事業者_法人格名称">
                       <option value="" selected>
                         選択してください
@@ -191,8 +191,8 @@ const BusinessForm = () => {
                     </select>
                   </div>
                 </div>
-                <div class="form-inline__item form-inline__item--text">
-                  <div class="form-input form-input--large">
+                <div className="form-inline__item form-inline__item--text">
+                  <div className="form-input form-input--large">
                     <input
                       type="text"
                       name="事業者_法人格名称_その他"
@@ -204,17 +204,17 @@ const BusinessForm = () => {
                     />
                   </div>
                 </div>
-                <div class="form-inline__item form-inline__item--text">
+                <div className="form-inline__item form-inline__item--text">
                   法人格名称を「その他」で選択した場合、左記の欄に入力してください。
                 </div>
               </div>
             </td>
           </tr>
           <tr>
-            <td class="row_header">法人格の位置</td>
-            <td class="row_data">
-              <div class="form-inline form-inline--radio">
-                <div class="form-inline__item form-inline__item--radio">
+            <td className="row_header">法人格の位置</td>
+            <td className="row_data">
+              <div className="form-inline form-inline--radio">
+                <div className="form-inline__item form-inline__item--radio">
                   <fieldset>
                     <div>
                       <input
@@ -222,7 +222,7 @@ const BusinessForm = () => {
                         name="事業者_法人格の位置"
                         id="事業者_法人格の位置_1"
                         value="1"
-                        class="is-empty"
+                        className="is-empty"
                       />
                       <label for="事業者_法人格の位置_1">法人名称の前</label>
                       <input
@@ -230,13 +230,13 @@ const BusinessForm = () => {
                         name="事業者_法人格の位置"
                         id="事業者_法人格の位置_2"
                         value="2"
-                        class="is-empty"
+                        className="is-empty"
                       />
                       <label for="事業者_法人格の位置_2">法人名称の後</label>
                     </div>
                   </fieldset>
 
-                  <div class="form-inline__item form-inline__item--text">
+                  <div className="form-inline__item form-inline__item--text">
                     法人格名称を選択した場合、必須
                   </div>
                 </div>
@@ -244,13 +244,13 @@ const BusinessForm = () => {
             </td>
           </tr>
           <tr>
-            <td class="row_header">
-              法人名称（確認)<span class="input-form__require">※</span>
+            <td className="row_header">
+              法人名称（確認)<span className="input-form__require">※</span>
             </td>
-            <td class="row_data">
-              <div class="form-inline">
-                <div class="form-inline__item">
-                  <div class="form-input form-input--xlarge">
+            <td className="row_data">
+              <div className="form-inline">
+                <div className="form-inline__item">
+                  <div className="form-input form-input--xlarge">
                     <input
                       type="text"
                       name="事業者_正式名称"
@@ -266,16 +266,16 @@ const BusinessForm = () => {
             </td>
           </tr>
           <tr>
-            <td class="row_header">
-              代表者名<span class="input-form__require">※</span>
+            <td className="row_header">
+              代表者名<span className="input-form__require">※</span>
             </td>
-            <td class="row_data">
-              <div class="form-inline form-inline--seimei">
-                <div class="form-inline__item form-inline--seimei__item form-inline__item--name form-inline--seimei__item--name">
+            <td className="row_data">
+              <div className="form-inline form-inline--seimei">
+                <div className="form-inline__item form-inline--seimei__item form-inline__item--name form-inline--seimei__item--name">
                   <span>姓</span>
                 </div>
-                <div class="form-inline__item form-inline--seimei__item">
-                  <div class="form-input form-input--medium">
+                <div className="form-inline__item form-inline--seimei__item">
+                  <div className="form-input form-input--medium">
                     <input
                       name="事業者_代表_姓"
                       id="事業者_代表_姓"
@@ -287,11 +287,11 @@ const BusinessForm = () => {
                     />
                   </div>
                 </div>
-                <div class="form-inline__item form-inline--seimei__item form-inline__item--name form-inline--seimei__item--name">
+                <div className="form-inline__item form-inline--seimei__item form-inline__item--name form-inline--seimei__item--name">
                   <span>名</span>
                 </div>
-                <div class="form-inline__item form-inline--seimei__item">
-                  <div class="form-input form-input--medium">
+                <div className="form-inline__item form-inline--seimei__item">
+                  <div className="form-input form-input--medium">
                     <input
                       name="事業者_代表_名"
                       id="事業者_代表_名"
@@ -308,14 +308,14 @@ const BusinessForm = () => {
           </tr>
 
           <tr>
-            <td class="row_header">代表者名 フリガナ</td>
-            <td class="row_data">
-              <div class="form-inline form-inline--seimei">
-                <div class="form-inline__item form-inline--seimei__item form-inline__item--name form-inline--seimei__item--name">
+            <td className="row_header">代表者名 フリガナ</td>
+            <td className="row_data">
+              <div className="form-inline form-inline--seimei">
+                <div className="form-inline__item form-inline--seimei__item form-inline__item--name form-inline--seimei__item--name">
                   <span>セイ</span>
                 </div>
-                <div class="form-inline__item form-inline--seimei__item">
-                  <div class="form-input form-input--medium">
+                <div className="form-inline__item form-inline--seimei__item">
+                  <div className="form-input form-input--medium">
                     <input
                       name="事業者_代表_姓ふりがな"
                       id="事業者_代表_姓ふりがな"
@@ -326,11 +326,11 @@ const BusinessForm = () => {
                     />
                   </div>
                 </div>
-                <div class="form-inline__item form-inline--seimei__item form-inline__item--name form-inline--seimei__item--name">
+                <div className="form-inline__item form-inline--seimei__item form-inline__item--name form-inline--seimei__item--name">
                   <span>メイ</span>
                 </div>
-                <div class="form-inline__item form-inline--seimei__item">
-                  <div class="form-input form-input--medium">
+                <div className="form-inline__item form-inline--seimei__item">
+                  <div className="form-input form-input--medium">
                     <input
                       name="事業者_代表_名ふりがな"
                       id="事業者_代表_名ふりがな"
@@ -341,11 +341,11 @@ const BusinessForm = () => {
                     />
                   </div>
                 </div>
-                <div class="form-inline__item form-inline__item--text pc-only">
+                <div className="form-inline__item form-inline__item--text pc-only">
                   <span>(全角カナ、全角スペース)</span>
                 </div>
               </div>
-              <div class="form-inline__item form-inline__item--text sp-only">
+              <div className="form-inline__item form-inline__item--text sp-only">
                 <span>(全角カナ、全角スペース)</span>
               </div>
             </td>

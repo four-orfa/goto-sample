@@ -2,7 +2,7 @@ import React from "react";
 
 const header = () => {
   return (
-    <header id="header" class="in">
+    <header id="header" className="in">
       <div id="fixed_contents">
         <p id="site_title">
           <a href="https://biz.goto.jata-net.or.jp/">
@@ -13,9 +13,9 @@ const header = () => {
           </a>
         </p>
 
-        <div id="menu_button" class="button_open sp">
+        <div id="menu_button" className="button_open sp">
           <a href="https://google.com">
-            <span class="icon">
+            <span className="icon">
               <img
                 src="https://biz.goto.jata-net.or.jp/assets/images/menu_button.png"
                 alt="メニューを開く"
@@ -25,9 +25,9 @@ const header = () => {
         </div>
 
         <div id="header_menu">
-          <div id="menu_close_button" class="button_close sp">
+          <div id="menu_close_button" className="button_close sp">
             <a href="https://google.com">
-              <span class="icon">
+              <span className="icon">
                 <img
                   src="https://biz.goto.jata-net.or.jp/assets/images/menu_close_button.png"
                   alt="メニューを閉じる"
@@ -36,7 +36,7 @@ const header = () => {
             </a>
           </div>
 
-          <nav class="nav_list">
+          <nav className="nav_list">
             <ul>
               <li>
                 <a
@@ -86,7 +86,7 @@ const header = () => {
             </ul>
           </nav>
 
-          <ul class="link_buttons_area">
+          <ul className="link_buttons_area">
             <li>
               <a
                 href="https://goto.jata-net.or.jp/"

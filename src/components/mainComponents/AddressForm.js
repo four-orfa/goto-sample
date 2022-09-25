@@ -3,21 +3,21 @@ import React from "react";
 const AddressForm = () => {
   return (
     <>
-      <h2 class="shop-title">法人住所</h2>
-      <table class="input-form">
+      <h2 className="shop-title">法人住所</h2>
+      <table className="input-form">
         <tr>
-          <td class="row_header">
-            郵便番号<span class="input-form__require">※</span>
+          <td className="row_header">
+            郵便番号<span className="input-form__require">※</span>
           </td>
-          <td class="row_data">
-            <div class="form-inline">
-              <div class="form-inline__item">
-                <div class="form-input form-input--large">
+          <td className="row_data">
+            <div className="form-inline">
+              <div className="form-inline__item">
+                <div className="form-input form-input--large">
                   <input
                     type="text"
                     name="事業者_郵便番号"
                     id="事業者_郵便番号"
-                    class="js-事業者-郵便番号"
+                    className="js-事業者-郵便番号"
                     placeholder="例：0000000"
                     MAXLENGTH="7"
                     value=""
@@ -25,20 +25,20 @@ const AddressForm = () => {
                   />
                 </div>
               </div>
-              <div class="form-inline__item form-inline__item--text">
+              <div className="form-inline__item form-inline__item--text">
                 <button
                   type="button"
-                  class="button_blue"
+                  className="button_blue"
                   onclick="sub郵便番号入力('事業者_郵便番号','事業者');return false;"
                 >
                   住所検索
                 </button>
               </div>
-              <div class="form-inline__item form-inline__item--text">
+              <div className="form-inline__item form-inline__item--text">
                 （半角数字、ハイフンなし）
                 <br />
-                <span class="red">
-                  <span class="pc-only">← </span>
+                <span className="red">
+                  <span className="pc-only">← </span>
                   必ず「住所検索」を押して下さい。
                 </span>
               </div>
@@ -47,17 +47,17 @@ const AddressForm = () => {
         </tr>
 
         <tr>
-          <td class="row_header">
-            都道府県<span class="input-form__require">※</span>
+          <td className="row_header">
+            都道府県<span className="input-form__require">※</span>
           </td>
-          <td class="row_data">
-            <div class="form-inline">
-              <div class="form-inline__item">
-                <div class="form-select form-select--large select">
+          <td className="row_data">
+            <div className="form-inline">
+              <div className="form-inline__item">
+                <div className="form-select form-select--large select">
                   <select
                     name="事業者_都道府県"
                     id="事業者_都道府県"
-                    class="js-事業者-都道府県"
+                    className="js-事業者-都道府県"
                     disabled
                     required
                   >
@@ -119,18 +119,18 @@ const AddressForm = () => {
         </tr>
 
         <tr>
-          <td class="row_header">
-            市区町村<span class="input-form__require">※</span>
+          <td className="row_header">
+            市区町村<span className="input-form__require">※</span>
           </td>
-          <td class="row_data">
-            <div class="form-inline">
-              <div class="form-inline__item">
-                <div class="form-input form-input--xlarge">
+          <td className="row_data">
+            <div className="form-inline">
+              <div className="form-inline__item">
+                <div className="form-input form-input--xlarge">
                   <input
                     type="text"
                     name="事業者_市区町村"
                     id="事業者_市区町村"
-                    class="js-事業者-市区町村"
+                    className="js-事業者-市区町村"
                     placeholder=""
                     value=""
                     disabled
@@ -143,23 +143,23 @@ const AddressForm = () => {
         </tr>
 
         <tr>
-          <td class="row_header">市区町村 フリガナ</td>
-          <td class="row_data">
-            <div class="form-inline">
-              <div class="form-inline__item">
-                <div class="form-input form-input--xlarge">
+          <td className="row_header">市区町村 フリガナ</td>
+          <td className="row_data">
+            <div className="form-inline">
+              <div className="form-inline__item">
+                <div className="form-input form-input--xlarge">
                   <input
                     type="text"
                     name="事業者_市区町村ふりがな"
                     id="事業者_市区町村ふりがな"
-                    class="js-事業者-市区町村ふりがな"
+                    className="js-事業者-市区町村ふりがな"
                     placeholder=""
                     value=""
                     disabled
                   />
                 </div>
               </div>
-              <div class="form-inline__item form-inline__item--text">
+              <div className="form-inline__item form-inline__item--text">
                 <span>（全角カナ）</span>
               </div>
             </div>
@@ -167,19 +167,19 @@ const AddressForm = () => {
         </tr>
 
         <tr>
-          <td class="row_header">
-            町名番地<span class="input-form__require">※</span>
+          <td className="row_header">
+            町名番地<span className="input-form__require">※</span>
           </td>
-          <td class="row_data">
-            <div class="form-inline">
-              <div class="form-inline__item">
-                <div class="form-input form-input--xlarge">
+          <td className="row_data">
+            <div className="form-inline">
+              <div className="form-inline__item">
+                <div className="form-input form-input--xlarge">
                   <input
                     type="text"
                     name="事業者_町名番地"
                     id="事業者_町名番地"
                     placeholder=""
-                    class="is-empty js-事業者-町名番地"
+                    className="is-empty js-事業者-町名番地"
                     value=""
                     disabled
                     required
@@ -191,23 +191,23 @@ const AddressForm = () => {
         </tr>
 
         <tr>
-          <td class="row_header">町名番地 フリガナ</td>
-          <td class="row_data">
-            <div class="form-inline">
-              <div class="form-inline__item">
-                <div class="form-input form-input--xlarge">
+          <td className="row_header">町名番地 フリガナ</td>
+          <td className="row_data">
+            <div className="form-inline">
+              <div className="form-inline__item">
+                <div className="form-input form-input--xlarge">
                   <input
                     type="text"
                     name="事業者_町名番地ふりがな"
                     id="事業者_町名番地ふりがな"
                     placeholder=""
-                    class="is-empty js-事業者-町名番地ふりがな"
+                    className="is-empty js-事業者-町名番地ふりがな"
                     value=""
                     disabled
                   />
                 </div>
               </div>
-              <div class="form-inline__item form-inline__item--text">
+              <div className="form-inline__item form-inline__item--text">
                 <span>（全角カナ）</span>
               </div>
             </div>
@@ -215,16 +215,16 @@ const AddressForm = () => {
         </tr>
 
         <tr>
-          <td class="row_header">建物名等</td>
-          <td class="row_data">
-            <div class="form-inline">
-              <div class="form-inline__item">
-                <div class="form-input form-input--xlarge">
+          <td className="row_header">建物名等</td>
+          <td className="row_data">
+            <div className="form-inline">
+              <div className="form-inline__item">
+                <div className="form-input form-input--xlarge">
                   <input
                     type="text"
                     name="事業者_建物等"
                     id="事業者_建物等"
-                    class="js-事業者-建物等"
+                    className="js-事業者-建物等"
                     placeholder=""
                     value=""
                     disabled
@@ -236,40 +236,40 @@ const AddressForm = () => {
         </tr>
 
         <tr>
-          <td class="row_header">建物名等 フリガナ</td>
-          <td class="row_data">
-            <div class="form-inline">
-              <div class="form-inline__item">
-                <div class="form-input form-input--xlarge">
+          <td className="row_header">建物名等 フリガナ</td>
+          <td className="row_data">
+            <div className="form-inline">
+              <div className="form-inline__item">
+                <div className="form-input form-input--xlarge">
                   <input
                     type="text"
                     name="事業者_建物等ふりがな"
                     id="事業者_建物等ふりがな"
-                    class="js-事業者-建物等ふりがな"
+                    className="js-事業者-建物等ふりがな"
                     placeholder=""
                     value=""
                     disabled
                   />
                 </div>
               </div>
-              <div class="form-inline__item form-inline__item--text">
+              <div className="form-inline__item form-inline__item--text">
                 <span>（全角カナ）</span>
               </div>
             </div>
           </td>
         </tr>
 
-        <tr class="minpaku">
-          <td class="row_header">法人メールアドレス</td>
-          <td class="row_data">
-            <div class="form-inline">
-              <div class="form-inline__item">
-                <div class="form-input form-input--xlarge">
+        <tr className="minpaku">
+          <td className="row_header">法人メールアドレス</td>
+          <td className="row_data">
+            <div className="form-inline">
+              <div className="form-inline__item">
+                <div className="form-input form-input--xlarge">
                   <input
                     type="text"
                     name="事業者_法人mail"
                     id="事業者_法人mail"
-                    class="js-事業者_法人mail"
+                    className="js-事業者_法人mail"
                     placeholder=""
                     value=""
                   />
@@ -280,62 +280,62 @@ const AddressForm = () => {
         </tr>
 
         <tr>
-          <td class="row_header">
-            TEL<span class="input-form__require">※</span>
+          <td className="row_header">
+            TEL<span className="input-form__require">※</span>
           </td>
-          <td class="row_data">
-            <div class="form-inline">
-              <div class="form-inline__item form-inline_item_tel01">
-                <div class="form-input form-input--medium">
+          <td className="row_data">
+            <div className="form-inline">
+              <div className="form-inline__item form-inline_item_tel01">
+                <div className="form-input form-input--medium">
                   <input
                     type="text"
                     name="事業者_TEL1"
                     maxlength="5"
                     placeholder="例：03"
-                    class="is-empty js-事業者-TEL1"
+                    className="is-empty js-事業者-TEL1"
                     id="事業者_TEL1"
                     value=""
                     required
                   />
                 </div>
               </div>
-              <div class="form-inline__item form-inline--seimei__item  form-inline--seimei__item--name form-inline_item_tel_length">
+              <div className="form-inline__item form-inline--seimei__item  form-inline--seimei__item--name form-inline_item_tel_length">
                 <span>-</span>
               </div>
 
-              <div class="form-inline__item form-inline_item_tel02">
-                <div class="form-input form-input--medium">
+              <div className="form-inline__item form-inline_item_tel02">
+                <div className="form-input form-input--medium">
                   <input
                     type="text"
                     name="事業者_TEL2"
                     maxlength="4"
                     placeholder="例：0000"
-                    class="is-empty js-事業者-TEL2"
+                    className="is-empty js-事業者-TEL2"
                     id="事業者_TEL2"
                     value=""
                     required
                   />
                 </div>
               </div>
-              <div class="form-inline__item form-inline--seimei__item  form-inline--seimei__item--name form-inline_item_tel_length">
+              <div className="form-inline__item form-inline--seimei__item  form-inline--seimei__item--name form-inline_item_tel_length">
                 <span>-</span>
               </div>
 
-              <div class="form-inline__item form-inline_item_tel02">
-                <div class="form-input form-input--medium">
+              <div className="form-inline__item form-inline_item_tel02">
+                <div className="form-input form-input--medium">
                   <input
                     type="text"
                     name="事業者_TEL3"
                     maxlength="4"
                     placeholder="例：0000"
-                    class="is-empty js-事業者-TEL3"
+                    className="is-empty js-事業者-TEL3"
                     id="事業者_TEL3"
                     value=""
                     required
                   />
                 </div>
               </div>
-              <div class="form-inline__item form-inline__item--text pc-only">
+              <div className="form-inline__item form-inline__item--text pc-only">
                 <span>（半角数字）</span>
               </div>
             </div>
@@ -343,55 +343,55 @@ const AddressForm = () => {
         </tr>
 
         <tr>
-          <td class="row_header">FAX</td>
-          <td class="row_data">
-            <div class="form-inline">
-              <div class="form-inline__item form-inline_item_tel01">
-                <div class="form-input form-input--medium">
+          <td className="row_header">FAX</td>
+          <td className="row_data">
+            <div className="form-inline">
+              <div className="form-inline__item form-inline_item_tel01">
+                <div className="form-input form-input--medium">
                   <input
                     type="text"
                     name="事業者_FAX1"
                     maxlength="5"
                     placeholder="例：03"
                     id="事業者_FAX1"
-                    class="js-事業者-FAX1"
+                    className="js-事業者-FAX1"
                     value=""
                   />
                 </div>
               </div>
-              <div class="form-inline__item form-inline--seimei__item  form-inline--seimei__item--name form-inline_item_tel_length">
+              <div className="form-inline__item form-inline--seimei__item  form-inline--seimei__item--name form-inline_item_tel_length">
                 <span>-</span>
               </div>
-              <div class="form-inline__item form-inline_item_tel02">
-                <div class="form-input form-input--medium">
+              <div className="form-inline__item form-inline_item_tel02">
+                <div className="form-input form-input--medium">
                   <input
                     type="text"
                     name="事業者_FAX2"
                     maxlength="4"
                     placeholder="例：0000"
                     id="事業者_FAX2"
-                    class="js-事業者-FAX2"
+                    className="js-事業者-FAX2"
                     value=""
                   />
                 </div>
               </div>
-              <div class="form-inline__item form-inline--seimei__item  form-inline--seimei__item--name form-inline_item_tel_length">
+              <div className="form-inline__item form-inline--seimei__item  form-inline--seimei__item--name form-inline_item_tel_length">
                 <span>-</span>
               </div>
-              <div class="form-inline__item form-inline_item_tel02">
-                <div class="form-input form-input--medium">
+              <div className="form-inline__item form-inline_item_tel02">
+                <div className="form-input form-input--medium">
                   <input
                     type="text"
                     name="事業者_FAX3"
                     maxlength="4"
                     placeholder="例：0000"
                     id="事業者_FAX3"
-                    class="js-事業者-FAX3"
+                    className="js-事業者-FAX3"
                     value=""
                   />
                 </div>
               </div>
-              <div class="form-inline__item form-inline__item--text pc-only">
+              <div className="form-inline__item form-inline__item--text pc-only">
                 <span>（半角数字）</span>
               </div>
             </div>
@@ -399,11 +399,11 @@ const AddressForm = () => {
         </tr>
 
         <tr>
-          <td class="row_header">URL</td>
-          <td class="row_data">
-            <div class="form-inline">
-              <div class="form-inline__item">
-                <div class="form-input form-input--xlarge">
+          <td className="row_header">URL</td>
+          <td className="row_data">
+            <div className="form-inline">
+              <div className="form-inline__item">
+                <div className="form-input form-input--xlarge">
                   <input
                     type="text"
                     name="事業者_URL"
@@ -413,7 +413,7 @@ const AddressForm = () => {
                   />
                 </div>
               </div>
-              <div class="form-inline__item form-inline__item--text pc-only">
+              <div className="form-inline__item form-inline__item--text pc-only">
                 <span>
                   本社などの代表URLを
                   <br />
@@ -424,11 +424,11 @@ const AddressForm = () => {
           </td>
         </tr>
         <tr>
-          <td class="row_header">店舗一覧URL</td>
-          <td class="row_data">
-            <div class="form-inline">
-              <div class="form-inline__item">
-                <div class="form-input form-input--xlarge">
+          <td className="row_header">店舗一覧URL</td>
+          <td className="row_data">
+            <div className="form-inline">
+              <div className="form-inline__item">
+                <div className="form-input form-input--xlarge">
                   <input
                     type="text"
                     name="店舗一覧URL"
@@ -438,7 +438,7 @@ const AddressForm = () => {
                   />
                 </div>
               </div>
-              <div class="form-inline__item form-inline__item--text pc-only">
+              <div className="form-inline__item form-inline__item--text pc-only">
                 <span>
                   複数の店舗がある場合
                   <br />
