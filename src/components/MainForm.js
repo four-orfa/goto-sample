@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ConsentForm from "./mainComponents/ConsentForm";
 import BusinessForm from "./mainComponents/BusinessForm";
 import OrganizationForm from "./mainComponents/OrganizationForm";
@@ -11,18 +11,42 @@ import styles from "./main.module.css";
 
 const MainForm = () => {
   const [submitFlag, setSubmitFlag] = useState(false);
-  const [Address, setAddress] = useState({});
+  const [business, setBusiness] = useState({});
+  const [address, setAddress] = useState({});
+  const [organization, setOrganization] = useState({});
+  const [infectionMeasures, setInfectionMeasures] = useState({});
+  const [password, setPassword] = useState({});
+
+  useEffect(() => {
+    console.log(
+      submitFlag,
+      business,
+      address,
+      organization,
+      infectionMeasures,
+      password
+    );
+  }, [
+    submitFlag,
+    business,
+    address,
+    organization,
+    infectionMeasures,
+    password,
+  ]);
+
   return (
     <>
+      f
       <Top />
       <main id="conts" className={styles.center}>
         <form>
           <ConsentForm setSubmitFlag={setSubmitFlag} />
-          <BusinessForm />
+          <BusinessForm setBusiness={setBusiness} />
           <AddressForm setAddress={setAddress} />
-          <OrganizationForm />
-          <InfectionMeasures />
-          <PasswordForm />
+          <OrganizationForm setOrganization={setOrganization} />
+          <InfectionMeasures setInfectionMeasures={setInfectionMeasures} />
+          <PasswordForm setPassword={setPassword} />
           <div className="l-submit-section clearfix">
             <button
               type="submit"

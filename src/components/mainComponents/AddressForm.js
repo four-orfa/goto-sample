@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const AddressForm = () => {
+const AddressForm = (props) => {
+  const setAddress = props.setAddress;
   const [formValue, setFormValue] = useState({
     zip: "",
     pref: "",
@@ -21,6 +22,10 @@ const AddressForm = () => {
     url: "",
     shopUrl: "",
   });
+
+  useEffect(() => {
+    setAddress(formValue);
+  }, [formValue, setAddress]);
 
   const [disableFlag, setDisableFlag] = useState(true);
 
@@ -62,7 +67,7 @@ const AddressForm = () => {
                   <input
                     type="text"
                     placeholder="例：0000000"
-                    MAXLENGTH="7"
+                    maxLength="7"
                     required
                     value={formValue.zip}
                     onChange={(e) => {
@@ -354,7 +359,7 @@ const AddressForm = () => {
                 <div className="form-input form-input--medium">
                   <input
                     type="text"
-                    maxlength="5"
+                    maxLength="5"
                     placeholder="例：03"
                     className="is-empty"
                     value={formValue.tel1}
@@ -376,7 +381,7 @@ const AddressForm = () => {
                 <div className="form-input form-input--medium">
                   <input
                     type="text"
-                    maxlength="4"
+                    maxLength="4"
                     placeholder="例：0000"
                     className="is-empty"
                     value={formValue.tel2}
@@ -427,7 +432,7 @@ const AddressForm = () => {
                 <div className="form-input form-input--medium">
                   <input
                     type="text"
-                    maxlength="5"
+                    maxLength="5"
                     placeholder="例：03"
                     value={formValue.fax1}
                     onChange={(e) => {
@@ -446,7 +451,7 @@ const AddressForm = () => {
                 <div className="form-input form-input--medium">
                   <input
                     type="text"
-                    maxlength="4"
+                    maxLength="4"
                     placeholder="例：0000"
                     value={formValue.fax2}
                     onChange={(e) => {
@@ -465,7 +470,7 @@ const AddressForm = () => {
                 <div className="form-input form-input--medium">
                   <input
                     type="text"
-                    maxlength="4"
+                    maxLength="4"
                     placeholder="例：0000"
                     value={formValue.fax3}
                     onChange={(e) => {

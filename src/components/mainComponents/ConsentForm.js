@@ -141,7 +141,7 @@ const ConsentForm = (props) => {
                   checked={check.c1}
                   onChange={handleCheck1}
                 />
-                <label for="consent_check0_0">
+                <label htmlFor="consent_check0_0">
                   <a href="https://google.com" target="_blank" rel="noreferrer">
                     サービス産業消費喚起事業（Go To トラベル事業）旅行会社・OTA
                     等旅行事業者・宿泊事業者向け取扱要領

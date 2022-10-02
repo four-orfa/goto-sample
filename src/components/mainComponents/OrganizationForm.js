@@ -22,7 +22,7 @@ const OrganizationsForm = () => {
                       className="is-empty"
                       required
                     />
-                    <label for="事業者_加盟団体_区分_JATA">JATA</label>
+                    <label htmlFor="事業者_加盟団体_区分_JATA">JATA</label>
                     <input
                       type="radio"
                       name="事業者_加盟団体_区分"
@@ -31,7 +31,7 @@ const OrganizationsForm = () => {
                       className="is-empty"
                       required
                     />
-                    <label for="事業者_加盟団体_区分_ANTA">ANTA</label>
+                    <label htmlFor="事業者_加盟団体_区分_ANTA">ANTA</label>
                     <input
                       type="radio"
                       name="事業者_加盟団体_区分"
@@ -40,7 +40,7 @@ const OrganizationsForm = () => {
                       className="is-empty"
                       required
                     />
-                    <label for="事業者_加盟団体_区分_その他">その他</label>
+                    <label htmlFor="事業者_加盟団体_区分_その他">その他</label>
                   </div>
                 </div>
               </div>
@@ -81,7 +81,7 @@ const OrganizationsForm = () => {
                     type="text"
                     className="is-empty"
                     value=""
-                    MAXLENGTH="50"
+                    maxLength="50"
                     disabled
                     required
                   />

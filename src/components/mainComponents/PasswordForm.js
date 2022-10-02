@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-const PasswordForm = () => {
+const PasswordForm = (props) => {
+  const setPassword = props.setPassword;
+  const [pass, setPass] = useState({
+    password: "",
+    confirmPassword: "",
+  });
+  useEffect(() => {
+    setPassword(pass);
+  }, [pass, setPassword]);
+
   return (
     <section>
       <h2 className="shop-title">ログイン用パスワード</h2>
@@ -16,13 +25,14 @@ const PasswordForm = () => {
                   <div className="form-input form-input--xlarge">
                     <input
                       type="password"
-                      name="BIZパスワード"
                       className="is-empty"
-                      value=""
-                      MINLENGTH="8"
-                      MAXLENGTH="64"
-                      required
-                      autocomplete="off"
+                      minLength="8"
+                      maxLength="64"
+                      required={true}
+                      autoComplete="new-password"
+                      onChange={(e) => {
+                        setPass({ ...pass, password: e.target.value });
+                      }}
                     />
                   </div>
                 </div>
@@ -62,17 +72,23 @@ const PasswordForm = () => {
                   <div className="form-input form-input--xlarge">
                     <input
                       type="password"
-                      name="BIZパスワード_確認"
-                      placeholder=""
                       className="is-empty"
-                      oncopy="return false"
-                      onpaste="return false"
-                      oncontextmenu="return false"
-                      value=""
-                      MINLENGTH="8"
-                      MAXLENGTH="64"
-                      required
-                      autocomplete="off"
+                      onCopy={() => {
+                        return false;
+                      }}
+                      onPaste={() => {
+                        return false;
+                      }}
+                      onContextMenu={() => {
+                        return false;
+                      }}
+                      minLength="8"
+                      maxLength="64"
+                      required={true}
+                      autoComplete="new-password"
+                      onChange={(e) => {
+                        setPass({ ...pass, confirmPassword: e.target.value });
+                      }}
                     />
                   </div>
                 </div>

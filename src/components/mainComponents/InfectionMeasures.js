@@ -20,7 +20,7 @@ const InfectionMeasures = () => {
             <textarea
               name="同意書_コロナその他"
               id="comment_torikumi"
-              maxlength="300"
+              maxLength="300"
               cols="30"
               rows="10"
               value=""
