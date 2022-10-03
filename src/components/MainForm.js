@@ -17,6 +17,18 @@ const MainForm = () => {
   const [infectionMeasures, setInfectionMeasures] = useState({});
   const [password, setPassword] = useState({});
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(
+      submitFlag,
+      business,
+      address,
+      organization,
+      infectionMeasures,
+      password
+    );
+  };
+
   useEffect(() => {
     console.log(
       submitFlag,
@@ -37,10 +49,9 @@ const MainForm = () => {
 
   return (
     <>
-      f
       <Top />
       <main id="conts" className={styles.center}>
-        <form>
+        <form onSubmit={handleSubmit}>
           <ConsentForm setSubmitFlag={setSubmitFlag} />
           <BusinessForm setBusiness={setBusiness} />
           <AddressForm setAddress={setAddress} />

@@ -2,12 +2,82 @@ import React, { useEffect, useState } from "react";
 
 const BusinessForm = (props) => {
   const setBusiness = props.setBusiness;
+
+  const LEGAL_ENTITY = [
+    { value: "000", label: "選択してください" },
+    { value: "001", label: "株式会社" },
+    { value: "002", label: "有限会社" },
+    { value: "003", label: "合名会社" },
+    { value: "004", label: "合資会社" },
+    { value: "005", label: "相互会社" },
+    { value: "006", label: "特定目的会社" },
+    { value: "007", label: "合同会社" },
+    { value: "008", label: "投資法人" },
+    { value: 101, label: "信用金庫" },
+    { value: 102, label: "信用組合" },
+    { value: 103, label: "森林組合" },
+    { value: 104, label: "商工組合" },
+    { value: 105, label: "農業協同組合" },
+    { value: 106, label: "漁業協同組合" },
+    { value: 107, label: "生活協同組合" },
+    { value: 108, label: "消費生活協同組合" },
+    { value: 109, label: "協同組合" },
+    { value: 110, label: "工業組合" },
+    { value: 111, label: "企業組合" },
+    { value: 112, label: "協業組合" },
+    { value: 113, label: "医療法人社団" },
+    { value: 114, label: "医療法人財団" },
+    { value: 115, label: "医療法人" },
+    { value: 116, label: "社会医療法人" },
+    { value: 201, label: "財団法人" },
+    { value: 202, label: "社団法人" },
+    { value: 203, label: "宗教法人" },
+    { value: 204, label: "学校法人" },
+    { value: 205, label: "社会福祉法人" },
+    { value: 206, label: "一般社団法人" },
+    { value: 207, label: "公益社団法人" },
+    { value: 208, label: "一般財団法人" },
+    { value: 209, label: "公益財団法人" },
+    { value: 301, label: "農事組合法人" },
+    { value: 302, label: "監査法人" },
+    { value: 303, label: "有限責任中間法人" },
+    { value: 304, label: "無限責任中間法人" },
+    { value: 305, label: "税理士法人" },
+    { value: 306, label: "弁護士法人" },
+    { value: 307, label: "特定非営利活動法人" },
+    { value: 308, label: "ＮＰＯ法人" },
+    { value: 309, label: "認定特定非営利活動法人" },
+    { value: 310, label: "認定ＮＰＯ法人" },
+    { value: 401, label: "信用金庫連合会" },
+    { value: 402, label: "信用組合連合会" },
+    { value: 403, label: "森林組合連合会" },
+    { value: 404, label: "商業組合連合会" },
+    { value: 405, label: "農業協同組合連合会" },
+    { value: 406, label: "漁業協同組合連合会" },
+    { value: 407, label: "生活協同組合連合会" },
+    { value: 408, label: "消費生活協同組合連合会" },
+    { value: 409, label: "協同組合連合会" },
+    { value: 410, label: "工業組合連合会" },
+    { value: 411, label: "環境衛生同業組合" },
+    { value: 412, label: "商店街振興組合" },
+    { value: 413, label: "商工会議所" },
+    { value: 414, label: "厚生年金基金" },
+    { value: 415, label: "健康保険組合" },
+    { value: 416, label: "企業年金基金" },
+    { value: 501, label: "インコーポレイテッド" },
+    { value: 502, label: "コーポレーション" },
+    { value: 503, label: "リミテッド" },
+    { value: 504, label: "カンパニー" },
+    { value: 999, label: "その他" },
+  ];
+
   const [formValue, setFormValue] = useState({
     companyNumber: "",
     companyNumberNonFlag: false,
     companyName: "",
     companyNameKana: "",
     companyLegalEntity: "",
+    companyLegalEntityName: "",
     companyLegalEntityOthers: "",
     companyLegalEntityPosition: "",
     companyRepresentativeLastName: "",
@@ -16,85 +86,28 @@ const BusinessForm = (props) => {
     companyRepresentativeFirstNameKana: "",
   });
 
-  const handleCheck = (e) => {
-    setFormValue({
-      ...formValue,
-      companyNumberNonFlag: e.target.checked,
-    });
-    console.log(formValue);
-  };
-
   useEffect(() => {
     setBusiness(formValue);
   }, [formValue, setBusiness]);
 
-  const LEGAL_ENTITY = [
-    { key: "000", value: "選択してください" },
-    { key: "001", value: "株式会社" },
-    { key: "002", value: "有限会社" },
-    { key: "003", value: "合名会社" },
-    { key: "004", value: "合資会社" },
-    { key: "005", value: "相互会社" },
-    { key: "006", value: "特定目的会社" },
-    { key: "007", value: "合同会社" },
-    { key: "008", value: "投資法人" },
-    { key: 101, value: "信用金庫" },
-    { key: 102, value: "信用組合" },
-    { key: 103, value: "森林組合" },
-    { key: 104, value: "商工組合" },
-    { key: 105, value: "農業協同組合" },
-    { key: 106, value: "漁業協同組合" },
-    { key: 107, value: "生活協同組合" },
-    { key: 108, value: "消費生活協同組合" },
-    { key: 109, value: "協同組合" },
-    { key: 110, value: "工業組合" },
-    { key: 111, value: "企業組合" },
-    { key: 112, value: "協業組合" },
-    { key: 113, value: "医療法人社団" },
-    { key: 114, value: "医療法人財団" },
-    { key: 115, value: "医療法人" },
-    { key: 116, value: "社会医療法人" },
-    { key: 201, value: "財団法人" },
-    { key: 202, value: "社団法人" },
-    { key: 203, value: "宗教法人" },
-    { key: 204, value: "学校法人" },
-    { key: 205, value: "社会福祉法人" },
-    { key: 206, value: "一般社団法人" },
-    { key: 207, value: "公益社団法人" },
-    { key: 208, value: "一般財団法人" },
-    { key: 209, value: "公益財団法人" },
-    { key: 301, value: "農事組合法人" },
-    { key: 302, value: "監査法人" },
-    { key: 303, value: "有限責任中間法人" },
-    { key: 304, value: "無限責任中間法人" },
-    { key: 305, value: "税理士法人" },
-    { key: 306, value: "弁護士法人" },
-    { key: 307, value: "特定非営利活動法人" },
-    { key: 308, value: "ＮＰＯ法人" },
-    { key: 309, value: "認定特定非営利活動法人" },
-    { key: 310, value: "認定ＮＰＯ法人" },
-    { key: 401, value: "信用金庫連合会" },
-    { key: 402, value: "信用組合連合会" },
-    { key: 403, value: "森林組合連合会" },
-    { key: 404, value: "商業組合連合会" },
-    { key: 405, value: "農業協同組合連合会" },
-    { key: 406, value: "漁業協同組合連合会" },
-    { key: 407, value: "生活協同組合連合会" },
-    { key: 408, value: "消費生活協同組合連合会" },
-    { key: 409, value: "協同組合連合会" },
-    { key: 410, value: "工業組合連合会" },
-    { key: 411, value: "環境衛生同業組合" },
-    { key: 412, value: "商店街振興組合" },
-    { key: 413, value: "商工会議所" },
-    { key: 414, value: "厚生年金基金" },
-    { key: 415, value: "健康保険組合" },
-    { key: 416, value: "企業年金基金" },
-    { key: 501, value: "インコーポレイテッド" },
-    { key: 502, value: "コーポレーション" },
-    { key: 503, value: "リミテッド" },
-    { key: 504, value: "カンパニー" },
-    { key: 999, value: "その他" },
-  ];
+  const handleCheck = (e) => {
+    if (e.target.checked) {
+      setFormValue({
+        ...formValue,
+        companyNumberNonFlag: e.target.checked,
+        companyLegalEntityPosition: "",
+      });
+    } else {
+      setFormValue({
+        ...formValue,
+        companyNumberNonFlag: e.target.checked,
+      });
+    }
+  };
+
+  const handleChangeRadio = (e) => {
+    setFormValue({ ...formValue, companyLegalEntityPosition: e.target.value });
+  };
 
   return (
     <>
@@ -229,12 +242,19 @@ const BusinessForm = (props) => {
                       onChange={(e) => {
                         setFormValue({
                           ...formValue,
-                          companyLegalEntity: e.target.value,
+                          companyLegalEntity: e.target.value.split(",")[0],
+                          companyLegalEntityName: e.target.value.split(",")[1],
+                          companyLegalEntityOthers: "",
                         });
                       }}
                     >
                       {LEGAL_ENTITY.map((entity) => (
-                        <option value={entity.key}>{entity.value}</option>
+                        <option
+                          key={entity.value}
+                          value={entity.value + "," + entity.label}
+                        >
+                          {entity.label}
+                        </option>
                       ))}
                     </select>
                   </div>
@@ -243,11 +263,15 @@ const BusinessForm = (props) => {
                   <div className="form-input form-input--large">
                     <input
                       type="text"
-                      placeholder=""
-                      defaultValue=""
-                      disabled
-                      readOnly
+                      disabled={formValue.companyLegalEntity !== "999"}
                       value={formValue.companyLegalEntityOthers}
+                      onChange={(e) => {
+                        setFormValue({
+                          ...formValue,
+                          companyLegalEntityName: e.target.value,
+                          companyLegalEntityOthers: e.target.value,
+                        });
+                      }}
                     />
                   </div>
                 </div>
@@ -266,24 +290,26 @@ const BusinessForm = (props) => {
                     <div>
                       <input
                         type="radio"
-                        name="事業者_法人格の位置"
-                        id="事業者_法人格の位置_1"
-                        value="1"
+                        id="entity-first"
+                        value="first"
                         className="is-empty"
+                        onChange={handleChangeRadio}
+                        checked={
+                          formValue.companyLegalEntityPosition === "first"
+                        }
                       />
-                      <label htmlFor="事業者_法人格の位置_1">
-                        法人名称の前
-                      </label>
+                      <label htmlFor="entity-first">法人名称の前</label>
                       <input
                         type="radio"
-                        name="事業者_法人格の位置"
-                        id="事業者_法人格の位置_2"
-                        value="2"
+                        id="entity-last"
+                        value="last"
                         className="is-empty"
+                        onChange={handleChangeRadio}
+                        checked={
+                          formValue.companyLegalEntityPosition === "last"
+                        }
                       />
-                      <label htmlFor="事業者_法人格の位置_2">
-                        法人名称の後
-                      </label>
+                      <label htmlFor="entity-last">法人名称の後</label>
                     </div>
                   </fieldset>
 
@@ -304,12 +330,20 @@ const BusinessForm = (props) => {
                   <div className="form-input form-input--xlarge">
                     <input
                       type="text"
-                      name="事業者_正式名称"
-                      id="法人名称_確認"
-                      placeholder=""
-                      defaultValue=""
                       readOnly
-                      required
+                      value={
+                        formValue.companyNumberNonFlag === true
+                          ? formValue.companyName
+                          : formValue.companyLegalEntityPosition === "first"
+                          ? formValue.companyLegalEntityName +
+                            " " +
+                            formValue.companyName
+                          : formValue.companyLegalEntityPosition === "last"
+                          ? formValue.companyName +
+                            " " +
+                            formValue.companyLegalEntityName
+                          : ""
+                      }
                     />
                   </div>
                 </div>
