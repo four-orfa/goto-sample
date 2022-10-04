@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-const InfectionMeasures = () => {
+const InfectionMeasures = (props) => {
+  const setInfectionMeasures = props.setInfectionMeasures;
+
+  const [formValue, setFormValue] = useState({
+    comment: "",
+  });
+
+  useEffect(() => {
+    setInfectionMeasures(formValue);
+  }, [formValue, setInfectionMeasures]);
+
   return (
     <section className="rounded_box type02 section_consent_form">
       <h3 className="rounded_box_title">#わたしたちの感染防止対策</h3>
@@ -23,7 +33,8 @@ const InfectionMeasures = () => {
               maxLength="300"
               cols="30"
               rows="10"
-              value=""
+              value={formValue.comment}
+              onChange={(e) => setFormValue({ comment: e.target.value })}
             ></textarea>
           </div>
         </fieldset>

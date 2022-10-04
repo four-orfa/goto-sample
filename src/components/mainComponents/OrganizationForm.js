@@ -1,6 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
-const OrganizationsForm = () => {
+const OrganizationsForm = (props) => {
+  const setOrganization = props.setOrganization;
+
+  const [formValue, setFormValue] = useState({
+    organization: "",
+    otherOrganization: "",
+    organizationNumber: "",
+  });
+
+  useEffect(() => {
+    setOrganization(formValue);
+  }, [formValue, setOrganization]);
+
+  const handleChangeRadio = (e) => {
+    if (e.target.value === "other") {
+      setFormValue({ ...formValue, organization: e.target.value });
+    } else {
+      setFormValue({
+        ...formValue,
+        organization: e.target.value,
+        otherOrganization: "",
+      });
+    }
+  };
+
   return (
     <>
       <h2 className="shop-title">加盟団体</h2>
@@ -17,33 +41,31 @@ const OrganizationsForm = () => {
                     <div className="form-input">
                       <input
                         type="radio"
-                        name="事業者_加盟団体_区分"
-                        id="事業者_加盟団体_区分_JATA"
-                        value="1"
+                        id="jata"
                         className="is-empty"
-                        required
+                        value="jata"
+                        onChange={handleChangeRadio}
+                        checked={formValue.organization === "jata"}
                       />
-                      <label htmlFor="事業者_加盟団体_区分_JATA">JATA</label>
+                      <label htmlFor="jata">JATA</label>
                       <input
                         type="radio"
-                        name="事業者_加盟団体_区分"
-                        id="事業者_加盟団体_区分_ANTA"
-                        value="2"
+                        id="anta"
                         className="is-empty"
-                        required
+                        value="anta"
+                        onChange={handleChangeRadio}
+                        checked={formValue.organization === "anta"}
                       />
-                      <label htmlFor="事業者_加盟団体_区分_ANTA">ANTA</label>
+                      <label htmlFor="anta">ANTA</label>
                       <input
                         type="radio"
-                        name="事業者_加盟団体_区分"
-                        id="事業者_加盟団体_区分_その他"
-                        value="3"
+                        id="other"
                         className="is-empty"
-                        required
+                        value="other"
+                        onChange={handleChangeRadio}
+                        checked={formValue.organization === "other"}
                       />
-                      <label htmlFor="事業者_加盟団体_区分_その他">
-                        その他
-                      </label>
+                      <label htmlFor="other">その他</label>
                     </div>
                   </div>
                 </div>
@@ -57,13 +79,16 @@ const OrganizationsForm = () => {
                 <div className="form-inline form-inline__item form-inline--time__item">
                   <div className="form-input form-input--xlarge">
                     <input
-                      id="事業者_加盟団体_その他"
-                      name="事業者_加盟団体_その他"
                       type="text"
                       className="is-empty"
-                      value=""
-                      disabled
-                      required
+                      value={formValue.otherOrganization}
+                      disabled={formValue.organization !== "other"}
+                      onChange={(e) => {
+                        setFormValue({
+                          ...formValue,
+                          otherOrganization: e.target.value,
+                        });
+                      }}
                     />
                   </div>
                 </div>
@@ -79,14 +104,18 @@ const OrganizationsForm = () => {
                 <div className="form-inline form-inline__item form-inline--time__item">
                   <div className="form-input form-input--xlarge">
                     <input
-                      id="事業者_加盟団体_登録番号"
-                      name="事業者_加盟団体_登録番号"
                       type="text"
                       className="is-empty"
-                      value=""
+                      value={formValue.organizationNumber}
                       maxLength="50"
-                      disabled
+                      disabled={formValue.organization === ""}
                       required
+                      onChange={(e) => {
+                        setFormValue({
+                          ...formValue,
+                          organizationNumber: e.target.value,
+                        });
+                      }}
                     />
                   </div>
                 </div>

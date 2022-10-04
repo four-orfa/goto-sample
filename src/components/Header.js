@@ -5,21 +5,15 @@ const header = () => {
     <header id="header" className="in">
       <div id="fixed_contents">
         <p id="site_title">
-          <a href="https://biz.goto.jata-net.or.jp/">
-            <img
-              src="https://biz.goto.jata-net.or.jp/assets/images/site_title.png"
-              alt="Go To トラベル"
-            />
+          <a href="https://google.com">
+            <img alt="Go To トラベル" />
           </a>
         </p>
 
         <div id="menu_button" className="button_open sp">
           <a href="https://google.com">
             <span className="icon">
-              <img
-                src="https://biz.goto.jata-net.or.jp/assets/images/menu_button.png"
-                alt="メニューを開く"
-              />
+              <img alt="メニューを開く" />
             </span>
           </a>
         </div>
@@ -28,10 +22,7 @@ const header = () => {
           <div id="menu_close_button" className="button_close sp">
             <a href="https://google.com">
               <span className="icon">
-                <img
-                  src="https://biz.goto.jata-net.or.jp/assets/images/menu_close_button.png"
-                  alt="メニューを閉じる"
-                />
+                <img alt="メニューを閉じる" />
               </span>
             </a>
           </div>
@@ -40,7 +31,7 @@ const header = () => {
             <ul>
               <li>
                 <a
-                  href="https://biz.goto.jata-net.or.jp/"
+                  href="https://google.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -49,7 +40,7 @@ const header = () => {
               </li>
               <li>
                 <a
-                  href="https://biz.goto.jata-net.or.jp/#news"
+                  href="https://google.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -58,7 +49,7 @@ const header = () => {
               </li>
               <li>
                 <a
-                  href="https://biz.goto.jata-net.or.jp/#summary"
+                  href="https://google.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -67,7 +58,7 @@ const header = () => {
               </li>
               <li>
                 <a
-                  href="https://biz.goto.jata-net.or.jp/#application"
+                  href="https://google.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -76,7 +67,7 @@ const header = () => {
               </li>
               <li>
                 <a
-                  href="https://biz.goto.jata-net.or.jp/#faq"
+                  href="https://google.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -89,7 +80,7 @@ const header = () => {
           <ul className="link_buttons_area">
             <li>
               <a
-                href="https://goto.jata-net.or.jp/"
+                href="https://google.com"
                 target="_blank"
                 rel="noopener noreferrer"
               >

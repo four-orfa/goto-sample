@@ -5,17 +5,14 @@ const Footer = () => {
     <footer id="footer">
       <div className="wrapper">
         <div className="footer_illust">
-          <img
-            src="https://biz.goto.jata-net.or.jp/assets/images/illust_footer.jpg"
-            alt="footer"
-          />
+          <img alt="footer" />
         </div>
       </div>
 
       <ul className="footer_links">
         <li>
           <a
-            href="https://biz.goto.jata-net.or.jp/requirements.html"
+            href="https://google.coml"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -24,7 +21,7 @@ const Footer = () => {
         </li>
         <li>
           <a
-            href="https://biz.goto.jata-net.or.jp/policy.html"
+            href="https://google.coml"
             target="_blank"
             rel="noopener noreferrer"
           >

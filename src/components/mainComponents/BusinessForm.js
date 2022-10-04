@@ -95,7 +95,6 @@ const BusinessForm = (props) => {
       setFormValue({
         ...formValue,
         companyNumberNonFlag: e.target.checked,
-        companyLegalEntityPosition: "",
       });
     } else {
       setFormValue({
@@ -239,11 +238,15 @@ const BusinessForm = (props) => {
                 <div className="form-inline__item">
                   <div className="form-input form-input--large form-select select select_require">
                     <select
+                      disabled={formValue.companyNumberNonFlag}
                       onChange={(e) => {
                         setFormValue({
                           ...formValue,
                           companyLegalEntity: e.target.value.split(",")[0],
-                          companyLegalEntityName: e.target.value.split(",")[1],
+                          companyLegalEntityName:
+                            e.target.value.split(",")[0] === "000"
+                              ? ""
+                              : e.target.value.split(",")[1],
                           companyLegalEntityOthers: "",
                         });
                       }}
@@ -293,6 +296,7 @@ const BusinessForm = (props) => {
                         id="entity-first"
                         value="first"
                         className="is-empty"
+                        disabled={formValue.companyNumberNonFlag}
                         onChange={handleChangeRadio}
                         checked={
                           formValue.companyLegalEntityPosition === "first"
@@ -304,6 +308,7 @@ const BusinessForm = (props) => {
                         id="entity-last"
                         value="last"
                         className="is-empty"
+                        disabled={formValue.companyNumberNonFlag}
                         onChange={handleChangeRadio}
                         checked={
                           formValue.companyLegalEntityPosition === "last"
@@ -328,23 +333,19 @@ const BusinessForm = (props) => {
               <div className="form-inline">
                 <div className="form-inline__item">
                   <div className="form-input form-input--xlarge">
-                    <input
-                      type="text"
-                      readOnly
-                      value={
-                        formValue.companyNumberNonFlag === true
-                          ? formValue.companyName
-                          : formValue.companyLegalEntityPosition === "first"
-                          ? formValue.companyLegalEntityName +
-                            " " +
-                            formValue.companyName
-                          : formValue.companyLegalEntityPosition === "last"
-                          ? formValue.companyName +
-                            " " +
-                            formValue.companyLegalEntityName
-                          : ""
-                      }
-                    />
+                    <p>
+                      {formValue.companyNumberNonFlag === true
+                        ? formValue.companyName
+                        : formValue.companyLegalEntityPosition === "first"
+                        ? formValue.companyLegalEntityName +
+                          " " +
+                          formValue.companyName
+                        : formValue.companyLegalEntityPosition === "last"
+                        ? formValue.companyName +
+                          " " +
+                          formValue.companyLegalEntityName
+                        : ""}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -362,13 +363,17 @@ const BusinessForm = (props) => {
                 <div className="form-inline__item form-inline--seimei__item">
                   <div className="form-input form-input--medium">
                     <input
-                      name="事業者_代表_姓"
-                      id="事業者_代表_姓"
                       type="text"
                       placeholder="例：山田"
                       size="4"
-                      value=""
                       required
+                      value={formValue.companyRepresentativeLastName}
+                      onChange={(e) => {
+                        setFormValue({
+                          ...formValue,
+                          companyRepresentativeLastName: e.target.value,
+                        });
+                      }}
                     />
                   </div>
                 </div>
@@ -378,13 +383,17 @@ const BusinessForm = (props) => {
                 <div className="form-inline__item form-inline--seimei__item">
                   <div className="form-input form-input--medium">
                     <input
-                      name="事業者_代表_名"
-                      id="事業者_代表_名"
                       type="text"
                       placeholder="例：太郎"
                       size="4"
-                      value=""
                       required
+                      value={formValue.companyRepresentativeLastNameKana}
+                      onChange={(e) => {
+                        setFormValue({
+                          ...formValue,
+                          companyRepresentativeLastNameKana: e.target.value,
+                        });
+                      }}
                     />
                   </div>
                 </div>
@@ -407,7 +416,13 @@ const BusinessForm = (props) => {
                       type="text"
                       placeholder="例：ヤマダ"
                       size="4"
-                      value=""
+                      value={formValue.companyRepresentativeFirstName}
+                      onChange={(e) => {
+                        setFormValue({
+                          ...formValue,
+                          companyRepresentativeFirstName: e.target.value,
+                        });
+                      }}
                     />
                   </div>
                 </div>
@@ -417,12 +432,16 @@ const BusinessForm = (props) => {
                 <div className="form-inline__item form-inline--seimei__item">
                   <div className="form-input form-input--medium">
                     <input
-                      name="事業者_代表_名ふりがな"
-                      id="事業者_代表_名ふりがな"
                       type="text"
                       placeholder="例：タロウ"
                       size="4"
-                      value=""
+                      value={formValue.companyRepresentativeFirstNameKana}
+                      onChange={(e) => {
+                        setFormValue({
+                          ...formValue,
+                          companyRepresentativeFirstNameKana: e.target.value,
+                        });
+                      }}
                     />
                   </div>
                 </div>

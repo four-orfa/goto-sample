@@ -188,11 +188,7 @@ const ConsentForm = (props) => {
                   onChange={handleCheck4}
                 />
                 <label htmlFor="consent_check0_3">
-                  <a
-                    href="https://biz.goto.jata-net.or.jp/assets/document/観光庁より、ＧｏＴｏトラベル事業をご利用いただく皆様へ_200730_2330.pdf"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  <a href="https://google.com" target="_blank" rel="noreferrer">
                     「観光庁より、ＧｏＴｏトラベル事業をご利用いただく皆様へ」
                   </a>
                   を旅行者に同意させた上で、契約することに同意します。
